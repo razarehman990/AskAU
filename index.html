@@ -125,19 +125,4 @@ var button = document.getElementById("btn");
   }
 });
 </script>
-
-<script>
-  function test()
-  {
-    if (btn.value === "on") {
-    btn.value = "off";
-    Genesys("command", "Launcher.hide");
-    Genesys("command", "Messenger.close");
-  } else {
-    btn.value = "on";
-    Genesys("command", "Launcher.show");
-    Genesys("command", "Messenger.open");
-  }
- }
-</script>
-        </html>
+</html>
