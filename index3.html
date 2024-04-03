@@ -34,8 +34,8 @@
     Genesys("subscribe", "Launcher.ready", function(){});
 
     function setCustomAttributes() {
-	var firstName: document.getElementById("firstName").value;
-	var lastName: document.getElementById("lastName").value;
+      var firstName = document.getElementById("firstName").value;
+      var lastName = document.getElementById("lastName").value;
 
       var customAttributes = {
         queueId: document.getElementById("queueId").value,
@@ -51,7 +51,7 @@
         program: document.getElementById("program").value,
         facultyName: document.getElementById("facultyName").value,
         level: document.getElementById("level").value,
-	name: firstName + " " + lastName // Concatenating firstName and lastName
+        name: firstName + " " + lastName // Concatenating firstName and lastName
       };
       Genesys("command", "Database.set", { messaging: { customAttributes: customAttributes } });
     }
@@ -60,30 +60,32 @@
 <body>
   <h1>Welcome to Athabasca University ASK AU Testing Page</h1>
   <h2>Instructions:</h2>
-<ul>
+  <ul>
     <li>This page is intended for testing and quality assurance (QA) purposes.</li>
     <li>Before initiating a Web Message interaction, ensure all necessary information is inputted.</li>
     <li>Click the "Set Custom Attributes" button after entering the information.</li>
     <li>To begin the Web Message interaction, click the "Show or Hide Widget Button".</li>
-</ul>
+  </ul>
 
   <!-- Input fields for custom attributes -->
-  <input type="text" id="queueId" placeholder="queueId">
-  <input type="text" id="priority" placeholder="priority">
-  <input type="text" id="skillName" placeholder="skillName">
-  <input type="text" id="studentId" placeholder="Student ID">
-  <input type="text" id="firstName" placeholder="firstName">
-  <input type="text" id="lastName" placeholder="lastName">
-  <input type="text" id="category" placeholder="category">
-  <input type="text" id="URLPop" placeholder="URLPop">
-  <input type="text" id="question" placeholder="question">
-  <input type="text" id="faculty" placeholder="faculty">
-  <input type="text" id="program" placeholder="program">
-  <input type="text" id="facultyName" placeholder="facultyName">
-  <input type="text" id="level" placeholder="level">
+  <div>
+    <input type="text" id="queueId" placeholder="queueId"><br>
+    <input type="text" id="priority" placeholder="priority"><br>
+    <input type="text" id="skillName" placeholder="skillName"><br>
+    <input type="text" id="studentId" placeholder="Student ID"><br>
+    <input type="text" id="firstName" placeholder="firstName"><br>
+    <input type="text" id="lastName" placeholder="lastName"><br>
+    <input type="text" id="category" placeholder="category"><br>
+    <input type="text" id="URLPop" placeholder="URLPop"><br>
+    <input type="text" id="question" placeholder="question"><br>
+    <input type="text" id="faculty" placeholder="faculty"><br>
+    <input type="text" id="program" placeholder="program"><br>
+    <input type="text" id="facultyName" placeholder="facultyName"><br>
+    <input type="text" id="level" placeholder="level"><br>
+  </div>
   
   <!-- Button to set custom attributes -->
-  <button type="button" onclick="setCustomAttributes()">Set Custom Attributes</button>
+  <button type="button" onclick="setCustomAttributes()">Set Custom Attributes</button><br>
   
   <!-- Button to show/hide widget -->
   <button type="button" id="btn" onclick="test()" value="on">Show or Hide widget!</button>
