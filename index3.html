@@ -34,13 +34,16 @@
     Genesys("subscribe", "Launcher.ready", function(){});
 
     function setCustomAttributes() {
+	var firstName: document.getElementById("firstName").value;
+	var lastName: document.getElementById("lastName").value;
+
       var customAttributes = {
         queueId: document.getElementById("queueId").value,
         priority: document.getElementById("priority").value,
         skillName: document.getElementById("skillName").value,
         studentId: document.getElementById("studentId").value,
-        firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
+        firstName: firstName,
+        lastName: lastName,
         category: document.getElementById("category").value,
         URLPop: document.getElementById("URLPop").value,
         question: document.getElementById("question").value,
@@ -48,15 +51,15 @@
         program: document.getElementById("program").value,
         facultyName: document.getElementById("facultyName").value,
         level: document.getElementById("level").value,
-		name: firstName + " " + lastName // Concatenating firstName and lastName
+	name: firstName + " " + lastName // Concatenating firstName and lastName
       };
       Genesys("command", "Database.set", { messaging: { customAttributes: customAttributes } });
     }
   </script>
 </head>
 <body>
-  <h1>Welcome to a Simple HTML Page</h1>
-  <p>This is a very simple HTML page.</p>
+  <h1>Welcome to Athabasca University ASK AU Testing Page</h1>
+  <p>This pgae is created for testig and QA purposes. Please input all information and click "Set Custom Attributes" befoew initiating Web Message. To Initiate Web Message interaction, Please click on "Show or Hide Widget Button".</p>
   
   <!-- Input fields for custom attributes -->
   <input type="text" id="queueId" placeholder="queueId">
