@@ -38,13 +38,13 @@
       font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
-      background-color: #007bff;
+      background-color: #ff7e00; /* Dark orange color */
       color: #fff;
       border: none;
     }
 
     button:hover {
-      background-color: #0056b3;
+      background-color: #ff6600; /* Darker orange color on hover */
     }
   </style>
   <script type="text/javascript" charset="utf-8">
@@ -96,7 +96,6 @@
         program: document.getElementById("program").value,
         facultyName: document.getElementById("facultyName").value,
         level: document.getElementById("level").value,
-        name: firstName + " " + lastName // Concatenating firstName and lastName
       };
       Genesys("command", "Database.set", { messaging: { customAttributes: customAttributes } });
     }
@@ -109,7 +108,7 @@
     <li>This page is intended for testing and quality assurance (QA) purposes.</li>
     <li>Before initiating a Web Message interaction, ensure all necessary information is inputted.</li>
     <li>Click the "Set Custom Attributes" button after entering the information.</li>
-    <li>To begin the Web Message interaction, click the "Show or Hide Widget Button".</li>
+    <li>To begin the Web Message interaction, click the "Show or Hide Widget" button.</li>
   </ul>
 
   <!-- Input fields for custom attributes -->
@@ -133,6 +132,6 @@
   <button type="button" onclick="setCustomAttributes()">Set Custom Attributes</button><br>
   
   <!-- Button to show/hide widget -->
-  <button type="button" id="btn" onclick="test()" value="on">Show or Hide widget!</button>
+  <button type="button" id="btn" onclick="test()" value="on">Show or Hide Widget</button>
 </body>
 </html>
