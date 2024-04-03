@@ -1,69 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-<button type="button" id="btn" onclick="test()" value="on">Show or Hide widget!</button>
-<title>Simple HTML Page</title>
-<script type="text/javascript" charset="utf-8">
-  (function (g, e, n, es, ys) {
-    g['_genesysJs'] = e;
-    g[e] = g[e] || function () {
-      (g[e].q = g[e].q || []).push(arguments)
-    };
-    g[e].t = 1 * new Date();
-    g[e].c = es;
-    ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-  })(window, 'Genesys', 'https://apps.cac1.pure.cloud/genesys-bootstrap/genesys.min.js', {
-    environment: 'prod-cac1',
-    deploymentId: 'db7da76c-9d3c-494a-bd75-50d5811055b3'
-  });
-</script>
-
-<script type="text/javascript" charset="utf-8">
-     Genesys("subscribe", "Launcher.ready", function(){});
-  
-var button = document.getElementById("btn");
-  
-  Genesys("command", "Database.set", {
-  messaging: {
-    customAttributes: {
-	  QueueId: "b7736780-7aa2-493b-935d-40612383fca4",
-	  Priority: "1",
-      Skills: "a8b891b1-43b2-42e3-a512-068a4ef7bced",
-	  studentId: "1000182",
-	  FirstName: "Raza",
-      LastName: "Ur Rehman",
-      Category: "Academic & Learning Support",
-      URLPop: "www.google.com",
-	  Question: "How much is the semester fees ?",
-	  Faculty: "FB",
-      Program: "Bachelors",
-      FacultyName: "FB",
-      Level: "Low",
-      name: "Raza Ur Rehman"
+  <title>ASK AU Testing Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
     }
-  }
-});
-</script>
 
-<script>
-  function test()
-  {
-    if (btn.value === "on") {
-    btn.value = "off";
-    Genesys("command", "Launcher.hide");
-    Genesys("command", "Messenger.close");
-  } else {
-    btn.value = "on";
-    Genesys("command", "Launcher.show");
-    Genesys("command", "Messenger.open");
-  }
- }
-</script>
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-top: 0;
+      padding-left: 20px;
+    }
+
+    input[type="text"], select {
+      width: 200px;
+      height: 30px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #ffa500; /* Orange color */
+      color: #fff;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #ff7e00; /* Darker orange color on hover */
+    }
+  </style>
+  <script type="text/javascript" charset="utf-8">
+    (function (g, e, n, es, ys) {
+      g['_genesysJs'] = e;
+      g[e] = g[e] || function () {
+        (g[e].q = g[e].q || []).push(arguments)
+      };
+      g[e].t = 1 * new Date();
+      g[e].c = es;
+      ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+    })(window, 'Genesys', 'https://apps.cac1.pure.cloud/genesys-bootstrap/genesys.min.js', {
+      environment: 'prod-cac1',
+      deploymentId: 'db7da76c-9d3c-494a-bd75-50d5811055b3'
+    });
+  </script>
+
+  <script type="text/javascript" charset="utf-8">
+    function test() {
+      var btn = document.getElementById("btn");
+      if (btn.value === "on") {
+        btn.value = "off";
+        Genesys("command", "Launcher.hide");
+        Genesys("command", "Messenger.close");
+      } else {
+        btn.value = "on";
+        Genesys("command", "Launcher.show");
+        Genesys("command", "Messenger.open");
+      }
+    }
+
+    Genesys("subscribe", "Launcher.ready", function(){});
+
+    function setCustomAttributes() {
+      var firstName = document.getElementById("firstName").value;
+      var lastName = document.getElementById("lastName").value;
+
+      var customAttributes = {
+        queueId: document.getElementById("queueId").value,
+        priority: document.getElementById("priority").value,
+        skillName: document.getElementById("skillName").value,
+        studentId: document.getElementById("studentId").value,
+        firstName: firstName,
+        lastName: lastName,
+        category: document.getElementById("category").value,
+        URLPop: document.getElementById("URLPop").value,
+        question: document.getElementById("question").value,
+        faculty: document.getElementById("faculty").value,
+        program: document.getElementById("program").value,
+        facultyName: document.getElementById("facultyName").value,
+        level: document.getElementById("level").value,
+        name: firstName + " " + lastName // Concatenating firstName and lastName
+      };
+      Genesys("command", "Database.set", { messaging: { customAttributes: customAttributes } });
+    }
+  </script>
 </head>
 <body>
-  <h1>Welcome to a Simple HTML Page</h1>
-  <p>This is a very simple HTML page.</p>
+  <h1>Welcome to Athabasca University ASK AU Testing Page</h1>
+  <h2>Instructions:</h2>
+  <ul>
+    <li>This page is intended for testing and quality assurance (QA) purposes.</li>
+    <li>Before initiating a Web Message interaction, ensure all necessary information is inputted.</li>
+    <li>Click the "Set Custom Attributes" button after entering the information.</li>
+    <li>To begin the Web Message interaction, click the "Show or Hide Widget" button.</li>
+  </ul>
 
-  <!-- Provided JavaScript code -->
+  <!-- Input fields for custom attributes -->
+  <div>
+    <input type="text" id="queueId" placeholder="Queue ID"><br>
+    <input type="text" id="priority" placeholder="Priority"><br>
+    <input type="text" id="skillName" placeholder="Skill Name"><br>
+    <input type="text" id="studentId" placeholder="Student ID"><br>
+    <input type="text" id="firstName" placeholder="First Name"><br>
+    <input type="text" id="lastName" placeholder="Last Name"><br>
+    <input type="text" id="category" placeholder="Category"><br>
+    <input type="text" id="URLPop" placeholder="URLPop"><br>
+    <input type="text" id="question" placeholder="Question"><br>
+    <input type="text" id="faculty" placeholder="Faculty"><br>
+    <input type="text" id="program" placeholder="Program"><br>
+    <input type="text" id="facultyName" placeholder="Faculty Name"><br>
+    <input type="text" id="level" placeholder="Level"><br>
+  </div>
+  
+  <!-- Button to set custom attributes -->
+  <button type="button" onclick="setCustomAttributes()" style="background-color: #ffa500;">Set Custom Attributes</button><br>
+  
+  <!-- Button to show/hide widget -->
+  <button type="button" id="btn" onclick="test()" value="on" style="background-color: #ffa500;">Show or Hide Widget</button>
 </body>
 </html>
