@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple HTML Page</title>
+  <script type="text/javascript" charset="utf-8">
+    (function (g, e, n, es, ys) {
+      g['_genesysJs'] = e;
+      g[e] = g[e] || function () {
+        (g[e].q = g[e].q || []).push(arguments)
+      };
+      g[e].t = 1 * new Date();
+      g[e].c = es;
+      ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+    })(window, 'Genesys', 'https://apps.cac1.pure.cloud/genesys-bootstrap/genesys.min.js', {
+      environment: 'prod-cac1',
+      deploymentId: 'db7da76c-9d3c-494a-bd75-50d5811055b3'
+    });
+  </script>
+
+  <script type="text/javascript" charset="utf-8">
+    function test() {
+      var btn = document.getElementById("btn");
+      if (btn.value === "on") {
+        btn.value = "off";
+        Genesys("command", "Launcher.hide");
+        Genesys("command", "Messenger.close");
+      } else {
+        btn.value = "on";
+        Genesys("command", "Launcher.show");
+        Genesys("command", "Messenger.open");
+      }
+    }
+
+    Genesys("subscribe", "Launcher.ready", function(){});
+
+    function setCustomAttributes() {
+      var customAttributes = {
+        QueueId: document.getElementById("QueueId").value,
+        Priority: document.getElementById("Priority").value,
+        Skills: document.getElementById("Skills").value,
+        studentId: document.getElementById("studentId").value,
+        FirstName: document.getElementById("FirstName").value,
+        LastName: document.getElementById("LastName").value,
+        Category: document.getElementById("Category").value,
+        URLPop: document.getElementById("URLPop").value,
+        Question: document.getElementById("Question").value,
+        Faculty: document.getElementById("Faculty").value,
+        Program: document.getElementById("Program").value,
+        FacultyName: document.getElementById("FacultyName").value,
+        Level: document.getElementById("Level").value,
+        name: document.getElementById("name").value
+      };
+      Genesys("command", "Database.set", { messaging: { customAttributes: customAttributes } });
+    }
+  </script>
+</head>
+<body>
+  <h1>Welcome to a Simple HTML Page</h1>
+  <p>This is a very simple HTML page.</p>
+  
+  <!-- Input fields for custom attributes -->
+  <input type="text" id="QueueId" placeholder="QueueId">
+  <input type="text" id="Priority" placeholder="Priority">
+  <input type="text" id="Skills" placeholder="Skills">
+  <input type="text" id="studentId" placeholder="Student ID">
+  <input type="text" id="FirstName" placeholder="First Name">
+  <input type="text" id="LastName" placeholder="Last Name">
+  <input type="text" id="Category" placeholder="Category">
+  <input type="text" id="URLPop" placeholder="URLPop">
+  <input type="text" id="Question" placeholder="Question">
+  <input type="text" id="Faculty" placeholder="Faculty">
+  <input type="text" id="Program" placeholder="Program">
+  <input type="text" id="FacultyName" placeholder="Faculty Name">
+  <input type="text" id="Level" placeholder="Level">
+  <input type="text" id="name" placeholder="Name">
+  
+  <!-- Button to set custom attributes -->
+  <button type="button" onclick="setCustomAttributes()">Set Custom Attributes</button>
+  
+  <!-- Button to show/hide widget -->
+  <button type="button" id="btn" onclick="test()" value="on">Show or Hide widget!</button>
+</body>
+</html>
