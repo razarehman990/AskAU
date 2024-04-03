@@ -35,20 +35,20 @@
 
     function setCustomAttributes() {
       var customAttributes = {
-        QueueId: document.getElementById("QueueId").value,
-        Priority: document.getElementById("Priority").value,
-        Skills: document.getElementById("Skills").value,
+        queueId: document.getElementById("queueId").value,
+        priority: document.getElementById("priority").value,
+        skillIds: document.getElementById("skillIds").value,
+        skillName: document.getElementById("skillName").value,
         studentId: document.getElementById("studentId").value,
-        FirstName: document.getElementById("FirstName").value,
-        LastName: document.getElementById("LastName").value,
-        Category: document.getElementById("Category").value,
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        category: document.getElementById("category").value,
         URLPop: document.getElementById("URLPop").value,
-        Question: document.getElementById("Question").value,
-        Faculty: document.getElementById("Faculty").value,
-        Program: document.getElementById("Program").value,
-        FacultyName: document.getElementById("FacultyName").value,
-        Level: document.getElementById("Level").value,
-        name: document.getElementById("name").value
+        question: document.getElementById("question").value,
+        faculty: document.getElementById("faculty").value,
+        program: document.getElementById("program").value,
+        facultyName: document.getElementById("facultyName").value,
+        level: document.getElementById("level").value,
       };
       Genesys("command", "Database.set", { messaging: { customAttributes: customAttributes } });
     }
@@ -59,20 +59,20 @@
   <p>This is a very simple HTML page.</p>
   
   <!-- Input fields for custom attributes -->
-  <input type="text" id="QueueId" placeholder="QueueId">
-  <input type="text" id="Priority" placeholder="Priority">
-  <input type="text" id="Skills" placeholder="Skills">
+  <input type="text" id="queueId" placeholder="queueId">
+  <input type="text" id="priority" placeholder="priority">
+  <input type="text" id="skillIds" placeholder="skillIds">
+  <input type="text" id="skillName" placeholder="skillName">
   <input type="text" id="studentId" placeholder="Student ID">
-  <input type="text" id="FirstName" placeholder="First Name">
-  <input type="text" id="LastName" placeholder="Last Name">
-  <input type="text" id="Category" placeholder="Category">
+  <input type="text" id="firstName" placeholder="firstName">
+  <input type="text" id="lastName" placeholder="lastName">
+  <input type="text" id="category" placeholder="category">
   <input type="text" id="URLPop" placeholder="URLPop">
-  <input type="text" id="Question" placeholder="Question">
-  <input type="text" id="Faculty" placeholder="Faculty">
-  <input type="text" id="Program" placeholder="Program">
-  <input type="text" id="FacultyName" placeholder="Faculty Name">
-  <input type="text" id="Level" placeholder="Level">
-  <input type="text" id="name" placeholder="Name">
+  <input type="text" id="question" placeholder="question">
+  <input type="text" id="faculty" placeholder="faculty">
+  <input type="text" id="program" placeholder="program">
+  <input type="text" id="facultyName" placeholder="facultyName">
+  <input type="text" id="level" placeholder="level">
   
   <!-- Button to set custom attributes -->
   <button type="button" onclick="setCustomAttributes()">Set Custom Attributes</button>
