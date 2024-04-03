@@ -37,7 +37,6 @@
       var customAttributes = {
         queueId: document.getElementById("queueId").value,
         priority: document.getElementById("priority").value,
-        skillIds: document.getElementById("skillIds").value,
         skillName: document.getElementById("skillName").value,
         studentId: document.getElementById("studentId").value,
         firstName: document.getElementById("firstName").value,
@@ -49,6 +48,7 @@
         program: document.getElementById("program").value,
         facultyName: document.getElementById("facultyName").value,
         level: document.getElementById("level").value,
+		name: firstName + " " + lastName // Concatenating firstName and lastName
       };
       Genesys("command", "Database.set", { messaging: { customAttributes: customAttributes } });
     }
@@ -61,7 +61,6 @@
   <!-- Input fields for custom attributes -->
   <input type="text" id="queueId" placeholder="queueId">
   <input type="text" id="priority" placeholder="priority">
-  <input type="text" id="skillIds" placeholder="skillIds">
   <input type="text" id="skillName" placeholder="skillName">
   <input type="text" id="studentId" placeholder="Student ID">
   <input type="text" id="firstName" placeholder="firstName">
